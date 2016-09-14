@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 350px;
+			height: 250px;
+			border: 1px solid gray;
+			margin: 100px auto;
+		}
+		.dt{
+			line-height: 35px;
+			padding-left: 10px;
+			font-weight: bold;
+			color: skyblue;
+		}
+		.dd{
+			padding: 10px;
+		}
+		.dd_t{
+			overflow: hidden;
+		}	
+		.icon{
+			width: 50px;
+			height: 50px;
+			float: left;
+			background: url(images/xingzuo.png) no-repeat;
+			margin-right: 10px;
+		}
+		.yunshi{
+			width: 80px;
+			height: 13px;
+			display: inline-block;
+			background: url(images/yunshi.png) no-repeat;
+			position: relative;
+		}
+		.star{
+			width: 80px;
+			height: 13px;
+			position: absolute;//用绝对定位是因为可以脱标,使得压住父元素的背景图
+			top: 0;
+			left: 0;
+			background: url(images/yunshi.png) no-repeat left bottom;
+		}
+		
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="dt">星座运势</div>
+			<div class="dd">
+				<div class="dd_t">
+					<div class="icon" id="ico"></div>
+					<div class="right">
+						<select name="" id="sele">
+							<option value="0">白羊座</option>
+							<option value="1">金牛座</option>
+							<option value="2">天蝎座</option>
+							<option value="3">水瓶座</option>
+							
+							
+						</select>
+						<div>今日运势：<span class="yunshi">
+							<span class="star" id="stAr"></span>
+						</span>
+						</div>
+					</div>
+				</div>
+				<div class="dd_b" id="content">白羊座不喜欢向别人提要求,对朋友一点要求都不会提。如果向你提要求,就代表对你的喜欢和信赖非同一般,不过就算再信赖一个人,金牛也很少开口要求什么。因为金牛是随遇而安的,心态很平静,悠哉,而且不喜欢欠任何人的人情。不喜欢打探朋友的太多私事,也不喜欢逼喜欢的人的讲不愿讲的。</div>
+			</div>
+		</div>
+		<script>
+			//获取元素
+			function $(id){
+				return document.getElementById(id);
+			}
+			var arr=[1,2,3,4]
+			var txtArr=["woshi1","woshi2","woshi3","woshi4"]
+			function fn(){
+				$("content").innerHTML="我是牛牛牛啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊"
+				
+				
+			}
+			var sele=document.getElementById("sele")
+			sele.onchange=function(){
+			
+				//索引号乘以50的关系，但是是负数
+				$("ico").style.backgroundPosition="0 " +(-this.value*50)+ "px"
+				$("stAr").style.width=arr[this.value]*8+"px";
+				$("content").innerHTML=txtArr[this.value];
+			}
+			
+			
+		</script>
+	</body>
+</html>
